@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist de Economia de Energia em Casa</title>
+   
+</head>
+<body>
+    <h1>Checklist de Economia de Energia em Casa</h1>
+
+    <section>
+        <h2>Iluminação</h2>
+        <ul>
+            <li class="checklist-item">
+                <input type="checkbox" id="led" name="iluminacao" value="led">
+                <label for="led">Usei lâmpadas LED.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="luz-natural" name="iluminacao" value="luz-natural">
+                <label for="luz-natural">Aproveitei a luz natural.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="apagar-luzes" name="iluminacao" value="apagar-luzes">
+                <label for="apagar-luzes">Apaguei as luzes ao sair dos cômodos.</label>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Eletrodomésticos</h2>
+        <ul>
+            <li class="checklist-item">
+                <input type="checkbox" id="desligar-tomada" name="eletrodomesticos" value="desligar-tomada">
+                <label for="desligar-tomada">Desliguei os aparelhos da tomada.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="filtro-linha" name="eletrodomesticos" value="filtro-linha">
+                <label for="filtro-linha">Usei filtro de linha para desligar vários aparelhos.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="manutencao" name="eletrodomesticos" value="manutencao">
+                <label for="manutencao">Realizei a manutenção dos aparelhos.</label>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Aquecimento e Refrigeração</h2>
+        <ul>
+            <li class="checklist-item">
+                <input type="checkbox" id="termostato" name="aquecimento" value="termostato">
+                <label for="termostato">Ajustei o termostato para uma temperatura razoável.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="vedacao" name="aquecimento" value="vedacao">
+                <label for="vedacao">Vedei portas e janelas.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="ventilador" name="aquecimento" value="ventilador">
+                <label for="ventilador">Usei ventilador em vez de ar condicionado.</label>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Outros Hábitos</h2>
+        <ul>
+            <li class="checklist-item">
+                <input type="checkbox" id="banho-rapido" name="habitos" value="banho-rapido">
+                <label for="banho-rapido">Tomei banhos rápidos.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="lavar-roupa" name="habitos" value="lavar-roupa">
+                <label for="lavar-roupa">Lavei roupa com carga completa.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="sem-espera" name="habitos" value="sem-espera">
+                <label for="sem-espera">Desliguei os aparelhos completamente, sem deixar em modo de espera.</label>
+            </li>
+        </ul>
+    </section>
+
+    <div id="gif-parabens">
+        <img src="https://media.giphy.com/media/3o7bukV8W6uYTmDZe0/giphy.gif" alt="Parabéns! Você economizou energia!">
+        <p>Parabéns! Você está economizando energia!</p>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 Nycole Muchal</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const gifParabens = document.getElementById('gif-parabens');
+
+            function verificarChecklist() {
+                let todosMarcados = true;
+                checkboxes.forEach(checkbox => {
+                    if (!checkbox.checked) {
+                        todosMarcados = false;
+                    }
+                });
+
+                if (todosMarcados) {
+                    gifParabens.style.display = 'block';
+                } else {
+                    gifParabens.style.display = 'none';
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', verificarChecklist);
+            });
+
+           
+            verificarChecklist();
+        });
+    </script>
+</body>
+</html>
+
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none; 
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #777;
+        }
+
+        
+        #gif-parabens {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #gif-parabens img {
+            max-width: 200px;
+            height: auto;
+        }
+    </style>

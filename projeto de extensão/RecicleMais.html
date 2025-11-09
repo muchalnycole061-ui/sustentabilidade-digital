@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist: Recicle Mais em Casa!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0056b3;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #777;
+        }
+
+        #gif-parabens {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #gif-parabens img {
+            max-width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Checklist: Recicle Mais em Casa!</h1>
+
+    <section>
+        <h2>Reciclagem</h2>
+        <ul>
+            <li class="checklist-item">
+                <input type="checkbox" id="separar-lixo" name="reciclagem" value="separar-lixo">
+                <label for="separar-lixo">Separei o lixo reciclável (papel, plástico, vidro, metal).</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="limpar-embalagens" name="reciclagem" value="limpar-embalagens">
+                <label for="limpar-embalagens">Limpei as embalagens antes de reciclar.</label>
+            </li>
+            <li class="checklist-item">
+                <input type="checkbox" id="descarte-correto" name="reciclagem" value="descarte-correto">
+                <label for="descarte-correto">Descartei o lixo reciclável nos locais adequados.</label>
+            </li>
+        </ul>
+    </section>
+
+    <div id="gif-parabens">
+        <img src="https://media.giphy.com/media/26BRv0qk06QI8Rm40/giphy.gif" alt="Parabéns! Você está Reciclando Mais!">
+        <p>Parabéns! Você está Reciclando Mais e Cuidando do Planeta!</p>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 Nycole Muchal</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const gifParabens = document.getElementById('gif-parabens');
+
+            function verificarChecklist() {
+                let todosMarcados = true;
+                checkboxes.forEach(checkbox => {
+                    if (!checkbox.checked) {
+                        todosMarcados = false;
+                    }
+                });
+
+                if (todosMarcados) {
+                    gifParabens.style.display = 'block';
+                } else {
+                    gifParabens.style.display = 'none';
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', verificarChecklist);
+            });
+
+            // Verificar inicialmente
+            verificarChecklist();
+        });
+    </script>
+</body>
+</html>

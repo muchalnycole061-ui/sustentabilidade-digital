@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist de Descarte Consciente</title>
+   
+</head>
+<body>
+
+    <section>
+        <h2 >  Checklist do Descarte Consciente</h2>
+        <form id="checklist-descarte">
+            <div>
+                <input type="checkbox" id="eletronicos" name="eletronicos">
+                <label for="eletronicos">Descartei lixo eletrônico corretamente.</label>
+            </div>
+            <div>
+                <input type="checkbox" id="pilhas" name="pilhas">
+                <label for="pilhas">Entreguei pilhas e baterias em um ponto de coleta.</label>
+            </div>
+            <div>
+                <input type="checkbox" id="embalagens" name="embalagens">
+                <label for="embalagens">Separei as embalagens para reciclagem.</label>
+            </div>
+            <div>
+                <input type="checkbox" id="medicamentos" name="medicamentos">
+                <label for="medicamentos">Descartei medicamentos vencidos em uma farmácia.</label>
+            </div>
+            <div>
+                <input type="checkbox" id="roupas" name="roupas">
+                <label for="roupas">Doei roupas e calçados que não uso mais.</label>
+            </div>
+        </form>
+
+        <div id="gif-parabens">
+            <img src="gif.gif" alt="Parabéns! Você completou a checklist!">
+            <p>Parabéns! Você está fazendo a sua parte!</p>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('checklist-descarte');
+            const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+            const gifParabens = document.getElementById('gif-parabens');
+
+            function verificarChecklist() {
+                let todosMarcados = true;
+                checkboxes.forEach(checkbox => {
+                    if (!checkbox.checked) {
+                        todosMarcados = false;
+                    }
+                });
+
+                if (todosMarcados) {
+                    gifParabens.style.display = 'block'; 
+                } else {
+                    gifParabens.style.display = 'none';  
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', verificarChecklist);
+            });
+
+          
+            verificarChecklist();
+        });
+    </script>
+
+</body>
+</html>
+ <style>
+       
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #4809f7;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        form#checklist-descarte div {
+            margin-bottom: 10px;
+        }
+
+        form#checklist-descarte label {
+            margin-left: 5px;
+        }
+
+        #gif-parabens {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #gif-parabens img {
+            max-width: 200px; 
+            height: auto;
+        }
+    </style>
